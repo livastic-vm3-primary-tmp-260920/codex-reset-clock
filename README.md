@@ -4,7 +4,11 @@ An **independent**, free, ad-free, no-login browser utility for converting an
 individual's **Codex usage-limit refresh times** into an accurate countdown
 and timezone-aware calendar reminders.
 
-**Live (GitHub Pages, static, no paid hosting):**
+**Primary free branded clock (commercial-compatible Cloudflare Pages; clock is ad-free):**
+- English: https://devtools.trendbridged.com/codex-limit-clock/
+- 한국어: https://devtools.trendbridged.com/ko/codex-limit-clock/
+
+**Ad-free GitHub Pages educational mirror (static, no paid hosting):**
 - English: https://livastic-vm3-primary-tmp-260920.github.io/codex-reset-clock/
 - 한국어: https://livastic-vm3-primary-tmp-260920.github.io/codex-reset-clock/ko/
 
@@ -97,7 +101,12 @@ business logic is in `src/core.mjs` and automatically copied to
 This project is separate from the original LocalCSV Lab paid-ad domain
 https://tools.trendbridged.com/ . No Netlify site code, opt-in consent,
 Adsterra units, publisher balance, payouts or production credit budgets
-are touched by this repo. The public GitHub Pages site is **ad-free**.
+are touched by this repo. The public GitHub Pages site is **ad-free**. The same clock is also
+available on the separately approved `devtools.trendbridged.com` Cloudflare
+host. **Both clock-processing pages remain ad-free** and do not contact
+advertiser servers. Only the separate branded information homepages (not this
+calculator) allow visitors to voluntarily accept or decline an optional
+Adsterra banner; acceptance is not a condition for using any tool.
 An actual increase in Google search clicks, independent users or money
 must be verified, never inferred from a new deployment.
 

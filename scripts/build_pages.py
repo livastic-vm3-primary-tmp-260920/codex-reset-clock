@@ -16,6 +16,8 @@ import argparse
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 PUBLIC = "https://livastic-vm3-primary-tmp-260920.github.io/codex-reset-clock/"
+BRANDED = "https://devtools.trendbridged.com/codex-limit-clock/"
+BRANDED_KO = "https://devtools.trendbridged.com/ko/codex-limit-clock/"
 RESET_DOCS = "https://help.openai.com/en/articles/20001498-how-resets-work-in-codex"
 USAGE_DOCS = "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan"
 HELP_USAGE = "https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex"
@@ -289,6 +291,10 @@ def render(lang:str)->str:
   </aside>
  </section>
  <div class="inline-note"><strong>{escape(d["banner"])}</strong>{escape(d["bannerBody"])}</div>
+ <div class="inline-note"><strong>{"무료 카운트다운 운영 서비스:" if ko else "Free production countdown:"}</strong>
+  <a href="{BRANDED_KO if ko else BRANDED}" rel="noopener noreferrer">{"동일 무료 계산기를 브랜드 도메인에서 열기" if ko else "Open the same free clock on our branded site"}</a>.
+  {"계산기 자체에는 광고가 없습니다. 별도 소개 페이지에서는 명시적 허용 시에만 광고가 제공될 수 있습니다." if ko else "The clock itself contains no ads; separate informational pages may offer advertising only after explicit consent."}
+ </div>
  <section id="calculator" aria-labelledby="calculator-title">
    <div class="section-head"><div><div class="small-kicker">{escape(d["stepKicker"])}</div>
      <h2 id="calculator-title">{escape(d["sectionTitle"])}</h2></div>
