@@ -37,14 +37,21 @@ expiration is not a scheduled automatic reset.
   shareable link.
 - A **clearly marked fictional demo** to try the interface without
   mistaking example dates for real Codex/reset announcements.
-- Separate substantive search-indexable English and Korean pages,
-  canonical/hreflang meta, and a two-page XML sitemap.
+- Separate substantive English and Korean pages on both hosts. This
+  GitHub Pages **ad-free mirror uses cross-domain canonical/hreflang tags
+  pointing to the primary branded free clock**, not to a competing mirror.
+  Its two-entry sitemap lists those exact canonical EN/KO URLs. Both GitHub
+  Pages origin and the branded domain are verified in the same owner's Google
+  Search Console; this is a preference signal, **not an indexing guarantee**.
 - Responsive accessible markup, no external CSS/JS, no analytics,
   no advertising script, no tracking pixels, no credentials, no server
   processes and no dependence on an OpenAI API.
 
-The website itself is hosted by GitHub Pages; like any host, GitHub
-receives ordinary HTTP request metadata needed to deliver website files.
+The educational mirror itself is hosted by GitHub Pages; like any host,
+GitHub receives ordinary HTTP metadata needed to deliver files. The primary
+**equivalent free ad-free calculator** runs at `devtools.trendbridged.com`.
+Only distinct informational homepages may show an optional consented banner.
+The educational mirror is never redirected and has no advertising scripts.
 The app does not fetch external origins; links to official help and status
 resources open **only if a visitor chooses to click them**.
 

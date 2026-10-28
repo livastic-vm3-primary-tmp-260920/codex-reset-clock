@@ -16,6 +16,9 @@ import argparse
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 PUBLIC = "https://livastic-vm3-primary-tmp-260920.github.io/codex-reset-clock/"
+# Both owners are verified in the authenticated Google Search Console. This
+# GitHub Pages educational mirror deliberately prefers its existing, working
+# free commercial-compatible service as canonical (no visitor redirect).
 BRANDED = "https://devtools.trendbridged.com/codex-limit-clock/"
 BRANDED_KO = "https://devtools.trendbridged.com/ko/codex-limit-clock/"
 RESET_DOCS = "https://help.openai.com/en/articles/20001498-how-resets-work-in-codex"
@@ -214,7 +217,7 @@ def faq(q:str,a:str,idx:int)->str:
 def render(lang:str)->str:
     d=COPY[lang]
     ko=lang=="ko"
-    url=PUBLIC+("ko/" if ko else "")
+    url=BRANDED_KO if ko else BRANDED
     stylesheet="../assets/style.css" if ko else "assets/style.css"
     script="../assets/app.mjs" if ko else "assets/app.mjs"
     nav_en='aria-current="page"' if not ko else ""
@@ -242,9 +245,9 @@ def render(lang:str)->str:
 <title>{escape(d["title"])}</title>
 <meta name="description" content="{escape(d["description"],quote=True)}">
 <link rel="canonical" href="{url}">
-<link rel="alternate" hreflang="en" href="{PUBLIC}">
-<link rel="alternate" hreflang="ko" href="{PUBLIC}ko/">
-<link rel="alternate" hreflang="x-default" href="{PUBLIC}">
+<link rel="alternate" hreflang="en" href="{BRANDED}">
+<link rel="alternate" hreflang="ko" href="{BRANDED_KO}">
+<link rel="alternate" hreflang="x-default" href="{BRANDED}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{escape(d["title"],quote=True)}">
 <meta property="og:description" content="{escape(d["description"],quote=True)}">
@@ -364,7 +367,9 @@ def render(lang:str)->str:
 def build() -> dict[Path,bytes]:
     en=render("en").encode("utf-8")
     ko=render("ko").encode("utf-8")
-    links=[PUBLIC, PUBLIC+"ko/"]
+    # Verified-owner cross-site sitemap avoids contradictory canonical signals.
+    # This mirror remains directly navigable on GitHub Pages and ad-free.
+    links=[BRANDED, BRANDED_KO]
     sitemap='<?xml version="1.0" encoding="UTF-8"?>\n'
     sitemap+='<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     for url in links:
@@ -397,8 +402,12 @@ def validate(output:dict[Path,bytes]) -> None:
                           "adsbygoogle","<iframe","fetch(","XMLHttpRequest",
                           "authentication token","password="):
             assert forbidden.lower() not in html.lower(),forbidden
-        expected=PUBLIC+("ko/" if locale=="ko" else "")
+        expected=BRANDED_KO if locale=="ko" else BRANDED
         assert '<link rel="canonical" href="'+expected+'">' in html
+        assert '<link rel="alternate" hreflang="en" href="'+BRANDED+'">' in html
+        assert '<link rel="alternate" hreflang="ko" href="'+BRANDED_KO+'">' in html
+        assert '<a href="'+PUBLIC+'" hreflang="en"' in html
+        assert '<a href="'+PUBLIC+'ko/" hreflang="ko"' in html
         assert "noindex" not in html
         assert len(html)>11000
     assert ET.fromstring(output[DOCS/"sitemap.xml"]).tag.endswith("urlset")

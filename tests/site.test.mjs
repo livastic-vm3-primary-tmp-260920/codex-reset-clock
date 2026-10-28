@@ -4,6 +4,8 @@ import {readFileSync, statSync} from "node:fs";
 import {execFileSync} from "node:child_process";
 
 const root="https://livastic-vm3-primary-tmp-260920.github.io/codex-reset-clock/";
+const preferred="https://devtools.trendbridged.com/codex-limit-clock/";
+const preferredKo="https://devtools.trendbridged.com/ko/codex-limit-clock/";
 const html={
  en:readFileSync("docs/index.html","utf8"),
  ko:readFileSync("docs/ko/index.html","utf8")
@@ -24,6 +26,10 @@ test("bilingual SEO pages are genuine, unique, canonical and reproducible",()=>{
   assert.equal(body.match(/<h1 /g)?.length,1);
   assert.equal(body.match(/<title>/g)?.length,1);
   assert.equal(body.match(/rel="canonical"/g)?.length,1);
+  assert.ok(body.includes('<link rel="canonical" href="'+(lang==="ko"?preferredKo:preferred)+'">'));
+  assert.ok(body.includes('hreflang="en" href="'+preferred+'"'));
+  assert.ok(body.includes('hreflang="ko" href="'+preferredKo+'"'));
+  assert.ok(body.includes('hreflang="x-default" href="'+preferred+'"'));
   assert.equal(body.match(/rel="alternate"/g)?.length,3);
   assert.ok(body.includes('content="index,follow,max-snippet:-1"'));
   assert.ok(body.includes('name="description"'));
@@ -83,9 +89,10 @@ test("site has zero third-party asset requests and no ads or fake usage dates",(
  assert.ok(app.includes("makeCalendarEvent"));
 });
 
-test("two-page XML sitemap contains only actual published EN/KO HTML canonical URLs",()=>{
+test("cross-site mirror sitemap points ONLY to primary verified branded canonical EN/KO URLs",()=>{
  const urls=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1]);
- assert.deepEqual(urls,[root,root+"ko/"]);
+ assert.deepEqual(urls,[preferred,preferredKo]);
+ assert.ok(urls.every(u=>u.startsWith('https://devtools.trendbridged.com/')));
  assert.ok(sitemap.includes("<lastmod>2026-10-28</lastmod>"));
  assert.ok(!sitemap.includes("google_vignette"));
  assert.ok(urls.every(url=>!url.includes("?")));
