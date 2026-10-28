@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'none'; img-src 'self' data:; frame-src 'none'; object-src 'none'; form-action 'none'; base-uri 'none'">
+<title>Codex Reset Time Calculator — 5-Hour, Weekly &amp; Banked | Codex Limit Clock</title>
+<meta name="description" content="Free Codex usage reset countdown: convert the exact 5-hour, weekly or banked reset deadline shown in your account. Timezones, 15-minute calendar reminders, no login or tracking.">
+<link rel="canonical" href="https://livastic-vm3-primary-tmp-260920.github.io/codex-reset-clock/">
+<link rel="alternate" hreflang="en" href="https://livastic-vm3-primary-tmp-260920.github.io/codex-reset-clock/">
+<link rel="alternate" hreflang="ko" href="https://livastic-vm3-primary-tmp-260920.github.io/codex-reset-clock/ko/">
+<link rel="alternate" hreflang="x-default" href="https://livastic-vm3-primary-tmp-260920.github.io/codex-reset-clock/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Codex Reset Time Calculator — 5-Hour, Weekly &amp; Banked | Codex Limit Clock">
+<meta property="og:description" content="Free Codex usage reset countdown: convert the exact 5-hour, weekly or banked reset deadline shown in your account. Timezones, 15-minute calendar reminders, no login or tracking.">
+<meta property="og:url" content="https://livastic-vm3-primary-tmp-260920.github.io/codex-reset-clock/">
+<meta name="theme-color" content="#08151b">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/style.css">
+<script type="module" src="assets/app.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="shell header-row">
+ <a class="identity" href="https://livastic-vm3-primary-tmp-260920.github.io/codex-reset-clock/" aria-label="Codex Limit Clock home"><span class="mark" aria-hidden="true">◴</span><span>Codex Limit Clock<span class="brand-sub">Independent usage-time companion</span></span></a>
+ <nav class="site-nav" aria-label="Primary navigation">
+   <a href="#calculator">The calculator</a>
+   <a href="#explain">Reset basics</a>
+   <a href="#sources">Official sources</a>
+   <div class="lang-links" aria-label="Language">
+      <a href="https://livastic-vm3-primary-tmp-260920.github.io/codex-reset-clock/" hreflang="en" aria-current="page">EN</a>
+      <a href="https://livastic-vm3-primary-tmp-260920.github.io/codex-reset-clock/ko/" hreflang="ko" >한국어</a>
+   </div>
+ </nav>
+</div></header>
+<main id="main">
+ <div class="shell">
+ <section class="hero" aria-labelledby="hero-title">
+  <div>
+    <div class="eyebrow"><span class="dot"></span>Your time. No unreliable reset predictions.</div>
+    <h1 id="hero-title">Know when your <em>Codex limits</em> refresh.</h1>
+    <p class="hero-lede">Copy the reset times from your own Usage screen. See a live countdown, compare time zones and add calendar reminders—without connecting an account.</p>
+    <div class="hero-actions"><a class="btn-primary" href="#calculator">Start your countdown ↗</a>
+      <a class="btn-outline" href="#explain">How resets work ↓</a></div>
+    <div class="hero-flags"><span>No account connection</span><span>Free · ad-free</span><span>English + 한국어</span></div>
+  </div>
+  <aside class="clock-panel" aria-label="Live device clock">
+    <div class="panel-kicker">Live time display · your device</div>
+    <p class="clock-title">The clock is accurate. Reset claims require a source.</p>
+    <div class="label-upper">Current device time · <span id="device-zone">—</span></div>
+    <div class="big-time" id="device-now">—</div>
+    <div class="divider"></div>
+    <div class="label-upper">Current UTC time</div>
+    <div class="utc-time" id="utc-now">—</div>
+    <p class="panel-foot">The time display updates on your device. It is not connected to OpenAI&#x27;s account usage or any live reset announcement feed.</p>
+  </aside>
+ </section>
+ <div class="inline-note"><strong>Important distinction:</strong> A regular allowance refresh is account-specific. A banked reset is a separate offer you may redeem, and an automatic/global reset only covers eligible accounts. No public site can know your personal remaining allowance. Always check your official Usage screen.</div>
+ <section id="calculator" aria-labelledby="calculator-title">
+   <div class="section-head"><div><div class="small-kicker">01 · THE PRIVATE COUNTDOWN</div>
+     <h2 id="calculator-title">Your limits, in your time zone.</h2></div>
+     <p>Use the exact date and time shown in your account. Empty fields are intentional—we cannot see your private Codex usage.</p></div>
+   <div class="config-strip">
+    <label for="zone">Show converted time in
+      <select id="zone" aria-label="Show converted time in"><option value="device">Auto / device</option>
+<option value="Asia/Seoul">Seoul · KST</option>
+<option value="UTC">UTC</option>
+<option value="America/Los_Angeles">Los Angeles · PT</option>
+<option value="America/New_York">New York · ET</option>
+<option value="Europe/London">London · UK</option>
+<option value="Europe/Berlin">Berlin · CET/CEST</option>
+<option value="Asia/Tokyo">Tokyo · JST</option>
+<option value="Asia/Singapore">Singapore · SGT</option>
+<option value="Australia/Sydney">Sydney · AEST/AEDT</option></select>
+    </label>
+    <div class="config-buttons">
+      <button type="button" id="demo" class="btn-small">Try fictional demo</button>
+      <button type="button" id="clear" class="btn-small">Clear everything</button>
+    </div>
+    <label class="privacy-label" for="remember"><input type="checkbox" id="remember">
+      Remember these dates on this browser (optional, local-only)</label>
+   </div>
+   <div class="windows"><article class="window-card" data-window="five" data-state="unset" id="window-five">
+  <div class="card-eyebrow"><span>SHORT WINDOW</span><span class="card-number">01 / 03</span></div>
+  <h3>5-hour window</h3>
+  <p class="help">Use only if your plan and Usage screen actually show a 5-hour reset. Plans differ; the website cannot determine your entitlement.</p>
+  <label class="field-label" for="time-five">Exact local date and time (from your Usage screen)</label>
+  <input type="datetime-local" id="time-five" autocomplete="off" step="60"
+         aria-describedby="window-five-hint" aria-label="5-hour window">
+  <div class="display-block">
+    <p class="label-upper" aria-hidden="true">5-hour window</p>
+    <div class="count" data-count aria-live="off"></div>
+    <div class="date-shown" data-converted></div>
+    <p class="hint" id="window-five-hint" data-hint></p>
+    <button class="btn-calendar" type="button" data-calendar="five" disabled>Download 15-minute-before reminder (.ics)</button>
+  </div>
+</article>
+<article class="window-card" data-window="weekly" data-state="unset" id="window-weekly">
+  <div class="card-eyebrow"><span>WEEKLY WINDOW</span><span class="card-number">02 / 03</span></div>
+  <h3>Weekly reset</h3>
+  <p class="help">Enter the exact upcoming weekly reset timestamp displayed in your account. Promotional or paid resets may change this date.</p>
+  <label class="field-label" for="time-weekly">Exact local date and time (from your Usage screen)</label>
+  <input type="datetime-local" id="time-weekly" autocomplete="off" step="60"
+         aria-describedby="window-weekly-hint" aria-label="Weekly reset">
+  <div class="display-block">
+    <p class="label-upper" aria-hidden="true">Weekly reset</p>
+    <div class="count" data-count aria-live="off"></div>
+    <div class="date-shown" data-converted></div>
+    <p class="hint" id="window-weekly-hint" data-hint></p>
+    <button class="btn-calendar" type="button" data-calendar="weekly" disabled>Download 15-minute-before reminder (.ics)</button>
+  </div>
+</article>
+<article class="window-card" data-window="banked" data-state="unset" id="window-banked">
+  <div class="card-eyebrow"><span>OPTIONAL OFFER</span><span class="card-number">03 / 03</span></div>
+  <h3>Banked reset expiry</h3>
+  <p class="help">If your account has a saved one-time reset, enter its redemption deadline—not an imaginary global reset date. This tool cannot redeem it.</p>
+  <label class="field-label" for="time-banked">Exact local date and time (from your Usage screen)</label>
+  <input type="datetime-local" id="time-banked" autocomplete="off" step="60"
+         aria-describedby="window-banked-hint" aria-label="Banked reset expiry">
+  <div class="display-block">
+    <p class="label-upper" aria-hidden="true">Banked reset expiry</p>
+    <div class="count" data-count aria-live="off"></div>
+    <div class="date-shown" data-converted></div>
+    <p class="hint" id="window-banked-hint" data-hint></p>
+    <button class="btn-calendar" type="button" data-calendar="banked" disabled>Download 15-minute-before reminder (.ics)</button>
+  </div>
+</article></div>
+   <div class="estimated">
+      <h3>Only know when your 5-hour session began?</h3>
+      <p>For a plan with a 5-hour window, estimate five elapsed hours from a start time. This is an approximation, not an account-specific reset guarantee.</p>
+      <div class="estimate-controls">
+        <label class="sr-only" for="start-five">Local start time</label>
+        <input type="datetime-local" id="start-five" autocomplete="off" step="60" aria-label="Local start time">
+        <button class="btn-small" type="button" id="estimate">Estimate +5 hours</button>
+      </div>
+      <p class="estimate-explain">If your dashboard shows a different reset time, follow the dashboard. Local clock changes, DST and account resets can change expectations.</p>
+   </div>
+   <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+ </section>
+ <section id="converter" aria-labelledby="converter-title">
+  <div class="section-head"><div><div class="small-kicker">02 · ANNOUNCEMENT TIME CONVERTER</div>
+   <h2 id="converter-title">Saw a UTC time in a post?</h2></div>
+   <p>Paste an ISO timestamp with a Z or explicit offset. We convert it, but do not verify the announcement, its scope, or whether a reset has happened.</p></div>
+  <div class="converter">
+   <div><h3>Announcement timestamp with timezone</h3><p>Paste an ISO timestamp with a Z or explicit offset. We convert it, but do not verify the announcement, its scope, or whether a reset has happened.</p></div>
+   <div><div class="converter-form">
+     <label class="sr-only" for="utc-converter">Announcement timestamp with timezone</label>
+     <input type="text" id="utc-converter" autocomplete="off" autocapitalize="off" spellcheck="false"
+       placeholder="2026-10-28T17:00Z" aria-label="Announcement timestamp with timezone">
+     <button id="convert" class="btn-primary" type="button">Convert time</button>
+    </div><div id="convert-result" class="converter-result" role="status" aria-live="polite"></div></div>
+  </div>
+ </section>
+ <section id="explain" class="sources" aria-labelledby="sources-title">
+  <div class="section-head"><div><div class="small-kicker">03 · KNOW WHAT IS REAL</div>
+     <h2 id="sources-title">Not every reset means the same thing.</h2></div>
+     <p>Official account information is more reliable than crowdsourced reset forecasts.</p>
+  </div>
+  <div id="sources" class="source-cards"><article class="source-card">
+ <div class="card-kicker">OFFICIAL USAGE</div>
+ <h3>Check your own Usage screen</h3><p>Remaining allowance and applicable reset dates depend on your plan and workspace. In the Codex CLI, usage commands may also be available.</p>
+ <a href="https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan" target="_blank" rel="noopener noreferrer">Official Codex plan &amp; usage guide ↗</a>
+</article>
+<article class="source-card">
+ <div class="card-kicker">RESET RULES</div>
+ <h3>Banked vs. automatic resets</h3><p>A banked reset is saved until redeemed or expired. An automatic/global reset is directly applied only to eligible accounts and is not guaranteed to recur.</p>
+ <a href="https://help.openai.com/en/articles/20001498-how-resets-work-in-codex" target="_blank" rel="noopener noreferrer">Official reset types &amp; eligibility ↗</a>
+</article>
+<article class="source-card">
+ <div class="card-kicker">SYSTEM STATUS</div>
+ <h3>Service health is not a reset</h3><p>Incident reports, maintenance and outages are not usage-limit refreshes. The official status page is a service-health source—not a personal usage feed.</p>
+ <a href="https://status.openai.com/" target="_blank" rel="noopener noreferrer">Open official system status ↗</a>
+</article></div>
+ </section>
+ <section class="faq" aria-labelledby="faq-title">
+  <div class="section-head"><div><div class="small-kicker">FAQ</div>
+   <h2 id="faq-title">Common questions</h2></div></div>
+  <details><summary>1. When will Codex reset for me?</summary><p>Open Codex or ChatGPT Settings → Usage and enter the exact reset time displayed there. This independent calculator does not log into your account or read your usage. Five-hour and weekly windows depend on plan eligibility.</p></details>
+<details><summary>2. Can this website force a Codex reset or show the next global reset?</summary><p>No. It cannot reset your allowance, retrieve hidden account limits or predict discretionary global resets. Official resets are only confirmed by OpenAI or your account&#x27;s updated Usage screen.</p></details>
+<details><summary>3. Do banked resets start a new weekly window?</summary><p>A banked reset may refresh your eligible usage limits and change the weekly reset date when redeemed. Eligibility, expiration and covered allowances depend on the actual offer; see OpenAI&#x27;s official reset guidance.</p></details>
+<details><summary>4. Why does the countdown disagree with my Usage screen?</summary><p>This website uses the date you manually entered and your device clock. A purchased reset, redeemed banked reset, workspace policy change, clock or time-zone mismatch may alter the official deadline. Your account&#x27;s Usage screen wins.</p></details>
+<details><summary>5. Do you collect my API key, account details or reset dates?</summary><p>No account or API connection exists. The countdown runs in your browser. Dates are not saved unless you opt into local browser storage; the Clear button deletes that local record. GitHub Pages still sees ordinary network metadata needed to serve website files.</p></details>
+  <details><summary>6. Is a paid reset the same as a saved reset?</summary>
+   <p>No. A purchased instant reset applies immediately after payment for eligible accounts, while an available banked reset can be redeemed later subject to its offer terms. <a target="_blank" rel="noopener noreferrer" href="https://help.openai.com/en/articles/20001507-paid-weekly-work-and-codex-rate-limit-resets">Official paid-reset rules ↗</a></p>
+  </details>
+ </section>
+ </div>
+</main>
+<footer class="site-footer"><div class="shell footer-row">
+ <p>Independent free tool. Not affiliated with, sponsored by or endorsed by OpenAI. No ads, analytics, external scripts or sign-in. Documentation reviewed 28 October 2026; policies may change.</p>
+ <a href="https://help.openai.com/en/articles/20001498-how-resets-work-in-codex" target="_blank" rel="noopener noreferrer">Read the official documentation ↗</a>
+</div></footer>
+</body></html>

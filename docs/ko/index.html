@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow,max-snippet:-1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'none'; img-src 'self' data:; frame-src 'none'; object-src 'none'; form-action 'none'; base-uri 'none'">
+<title>Codex 사용량 초기화 시간 계산기 | 5시간·주간 한도·초기화권</title>
+<meta name="description" content="무료 Codex 초기화 시간 계산기. 내 계정의 5시간·주간 사용량 초기화 시각과 저장된 초기화권 만료일을 입력해 실시간 카운트다운, 한국 시간 변환, 캘린더 알림을 확인하세요. 로그인 없음.">
+<link rel="canonical" href="https://livastic-vm3-primary-tmp-260920.github.io/codex-reset-clock/ko/">
+<link rel="alternate" hreflang="en" href="https://livastic-vm3-primary-tmp-260920.github.io/codex-reset-clock/">
+<link rel="alternate" hreflang="ko" href="https://livastic-vm3-primary-tmp-260920.github.io/codex-reset-clock/ko/">
+<link rel="alternate" hreflang="x-default" href="https://livastic-vm3-primary-tmp-260920.github.io/codex-reset-clock/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Codex 사용량 초기화 시간 계산기 | 5시간·주간 한도·초기화권">
+<meta property="og:description" content="무료 Codex 초기화 시간 계산기. 내 계정의 5시간·주간 사용량 초기화 시각과 저장된 초기화권 만료일을 입력해 실시간 카운트다운, 한국 시간 변환, 캘린더 알림을 확인하세요. 로그인 없음.">
+<meta property="og:url" content="https://livastic-vm3-primary-tmp-260920.github.io/codex-reset-clock/ko/">
+<meta name="theme-color" content="#08151b">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="module" src="../assets/app.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
+<header class="site-header"><div class="shell header-row">
+ <a class="identity" href="https://livastic-vm3-primary-tmp-260920.github.io/codex-reset-clock/" aria-label="Codex Limit Clock home"><span class="mark" aria-hidden="true">◴</span><span>Codex Limit Clock<span class="brand-sub">독립적인 사용량 시간 계산 도구</span></span></a>
+ <nav class="site-nav" aria-label="주요 메뉴">
+   <a href="#calculator">시간 계산기</a>
+   <a href="#explain">초기화 안내</a>
+   <a href="#sources">공식 문서</a>
+   <div class="lang-links" aria-label="Language">
+      <a href="https://livastic-vm3-primary-tmp-260920.github.io/codex-reset-clock/" hreflang="en" >EN</a>
+      <a href="https://livastic-vm3-primary-tmp-260920.github.io/codex-reset-clock/ko/" hreflang="ko" aria-current="page">한국어</a>
+   </div>
+ </nav>
+</div></header>
+<main id="main">
+ <div class="shell">
+ <section class="hero" aria-labelledby="hero-title">
+  <div>
+    <div class="eyebrow"><span class="dot"></span>추측 대신, 내 계정에 표시된 시간</div>
+    <h1 id="hero-title">Codex 사용량, <em>언제 다시</em> 쓸 수 있을까?</h1>
+    <p class="hero-lede">내 사용량 설정에 표시된 초기화 시각을 입력하세요. 실시간 남은 시간과 한국·해외 시간 변환, 캘린더 알림까지. 계정 연결은 필요 없습니다.</p>
+    <div class="hero-actions"><a class="btn-primary" href="#calculator">초기화 시간 계산하기 ↗</a>
+      <a class="btn-outline" href="#explain">초기화 방식 알아보기 ↓</a></div>
+    <div class="hero-flags"><span>계정 연결 없음</span><span>무료 · 광고 없음</span><span>한국어 + English</span></div>
+  </div>
+  <aside class="clock-panel" aria-label="실시간 기기 시계">
+    <div class="panel-kicker">실시간 기기 시각 표시</div>
+    <p class="clock-title">시각 계산은 정확하게. 실제 초기화 여부는 공식 정보로.</p>
+    <div class="label-upper">현재 기기 시각 · <span id="device-zone">—</span></div>
+    <div class="big-time" id="device-now">—</div>
+    <div class="divider"></div>
+    <div class="label-upper">현재 UTC 시각</div>
+    <div class="utc-time" id="utc-now">—</div>
+    <p class="panel-foot">현재 시간은 내 기기에서 갱신됩니다. OpenAI 사용량 계정이나 전역 초기화 발표를 실시간 조회하는 서비스는 아닙니다.</p>
+  </aside>
+ </section>
+ <div class="inline-note"><strong>먼저 구분하세요:</strong> 계정별 정기 사용량 갱신과 보관된 1회 초기화권, OpenAI가 일부 대상에 적용하는 추가 초기화는 서로 다릅니다. 공개 사이트에서는 개인 계정의 남은 사용량을 알 수 없습니다. 공식 사용량 화면이 기준입니다.</div>
+ <section id="calculator" aria-labelledby="calculator-title">
+   <div class="section-head"><div><div class="small-kicker">01 · 내 계정 카운트다운</div>
+     <h2 id="calculator-title">내 초기화 시각을 정확하게.</h2></div>
+     <p>내 사용량 화면에 있는 날짜·시간을 입력하세요. 초기값이 비어 있는 이유는 개인 계정의 정보를 이 사이트가 볼 수 없기 때문입니다.</p></div>
+   <div class="config-strip">
+    <label for="zone">변환해서 보여줄 시간대
+      <select id="zone" aria-label="변환해서 보여줄 시간대"><option value="device">Auto / device</option>
+<option value="Asia/Seoul">Seoul · KST</option>
+<option value="UTC">UTC</option>
+<option value="America/Los_Angeles">Los Angeles · PT</option>
+<option value="America/New_York">New York · ET</option>
+<option value="Europe/London">London · UK</option>
+<option value="Europe/Berlin">Berlin · CET/CEST</option>
+<option value="Asia/Tokyo">Tokyo · JST</option>
+<option value="Asia/Singapore">Singapore · SGT</option>
+<option value="Australia/Sydney">Sydney · AEST/AEDT</option></select>
+    </label>
+    <div class="config-buttons">
+      <button type="button" id="demo" class="btn-small">가상 예제 보기</button>
+      <button type="button" id="clear" class="btn-small">모두 지우기</button>
+    </div>
+    <label class="privacy-label" for="remember"><input type="checkbox" id="remember">
+      이 브라우저에 날짜 저장하기(선택, 서버 전송 없음)</label>
+   </div>
+   <div class="windows"><article class="window-card" data-window="five" data-state="unset" id="window-five">
+  <div class="card-eyebrow"><span>단기 한도</span><span class="card-number">01 / 03</span></div>
+  <h3>5시간 한도</h3>
+  <p class="help">내 요금제 및 사용량 화면에 5시간 갱신이 있을 때만 입력하세요. 모든 계정에 같은 제한이 적용되지는 않습니다.</p>
+  <label class="field-label" for="time-five">사용량 화면에 표시된 현지 날짜와 시각</label>
+  <input type="datetime-local" id="time-five" autocomplete="off" step="60"
+         aria-describedby="window-five-hint" aria-label="5시간 한도">
+  <div class="display-block">
+    <p class="label-upper" aria-hidden="true">5시간 한도</p>
+    <div class="count" data-count aria-live="off"></div>
+    <div class="date-shown" data-converted></div>
+    <p class="hint" id="window-five-hint" data-hint></p>
+    <button class="btn-calendar" type="button" data-calendar="five" disabled>15분 전 캘린더 알림(.ics) 저장</button>
+  </div>
+</article>
+<article class="window-card" data-window="weekly" data-state="unset" id="window-weekly">
+  <div class="card-eyebrow"><span>주간 한도</span><span class="card-number">02 / 03</span></div>
+  <h3>주간 초기화</h3>
+  <p class="help">계정의 사용량 화면에 표시된 다음 주간 초기화 시각을 입력하세요. 유료 또는 보관된 초기화권 사용 후 달라질 수 있습니다.</p>
+  <label class="field-label" for="time-weekly">사용량 화면에 표시된 현지 날짜와 시각</label>
+  <input type="datetime-local" id="time-weekly" autocomplete="off" step="60"
+         aria-describedby="window-weekly-hint" aria-label="주간 초기화">
+  <div class="display-block">
+    <p class="label-upper" aria-hidden="true">주간 초기화</p>
+    <div class="count" data-count aria-live="off"></div>
+    <div class="date-shown" data-converted></div>
+    <p class="hint" id="window-weekly-hint" data-hint></p>
+    <button class="btn-calendar" type="button" data-calendar="weekly" disabled>15분 전 캘린더 알림(.ics) 저장</button>
+  </div>
+</article>
+<article class="window-card" data-window="banked" data-state="unset" id="window-banked">
+  <div class="card-eyebrow"><span>선택적 혜택</span><span class="card-number">03 / 03</span></div>
+  <h3>보관된 초기화권 만료</h3>
+  <p class="help">계정에 초기화권이 있다면 사용 가능 만료 시각을 입력하세요. 전역 초기화 예상일이 아닙니다. 이 사이트에서는 초기화권을 사용할 수 없습니다.</p>
+  <label class="field-label" for="time-banked">사용량 화면에 표시된 현지 날짜와 시각</label>
+  <input type="datetime-local" id="time-banked" autocomplete="off" step="60"
+         aria-describedby="window-banked-hint" aria-label="보관된 초기화권 만료">
+  <div class="display-block">
+    <p class="label-upper" aria-hidden="true">보관된 초기화권 만료</p>
+    <div class="count" data-count aria-live="off"></div>
+    <div class="date-shown" data-converted></div>
+    <p class="hint" id="window-banked-hint" data-hint></p>
+    <button class="btn-calendar" type="button" data-calendar="banked" disabled>15분 전 캘린더 알림(.ics) 저장</button>
+  </div>
+</article></div>
+   <div class="estimated">
+      <h3>5시간 한도의 시작 시각만 알고 있나요?</h3>
+      <p>5시간 창이 적용되는 계정이라면 시작 시각 + 5시간을 추정할 수 있습니다. 공식 초기화 시간과 일치한다는 보장은 없습니다.</p>
+      <div class="estimate-controls">
+        <label class="sr-only" for="start-five">현지 시작 시각</label>
+        <input type="datetime-local" id="start-five" autocomplete="off" step="60" aria-label="현지 시작 시각">
+        <button class="btn-small" type="button" id="estimate">5시간 후 추정</button>
+      </div>
+      <p class="estimate-explain">실제 계정 화면에 다른 초기화 시각이 있으면 공식 화면을 따르세요. 일광절약시간이나 계정 초기화권 사용도 시간 계산에 영향을 줍니다.</p>
+   </div>
+   <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+ </section>
+ <section id="converter" aria-labelledby="converter-title">
+  <div class="section-head"><div><div class="small-kicker">02 · 공식 발표 시각 변환</div>
+   <h2 id="converter-title">공지에 UTC 시간이 있나요?</h2></div>
+   <p>Z 또는 시간대 오프셋이 포함된 시각을 입력하면 변환합니다. 해당 공지가 진짜인지 또는 모든 계정에 적용되는지 검증하는 것은 아닙니다.</p></div>
+  <div class="converter">
+   <div><h3>시간대가 포함된 공지 시각</h3><p>Z 또는 시간대 오프셋이 포함된 시각을 입력하면 변환합니다. 해당 공지가 진짜인지 또는 모든 계정에 적용되는지 검증하는 것은 아닙니다.</p></div>
+   <div><div class="converter-form">
+     <label class="sr-only" for="utc-converter">시간대가 포함된 공지 시각</label>
+     <input type="text" id="utc-converter" autocomplete="off" autocapitalize="off" spellcheck="false"
+       placeholder="2026-10-28T17:00Z" aria-label="시간대가 포함된 공지 시각">
+     <button id="convert" class="btn-primary" type="button">시간 변환</button>
+    </div><div id="convert-result" class="converter-result" role="status" aria-live="polite"></div></div>
+  </div>
+ </section>
+ <section id="explain" class="sources" aria-labelledby="sources-title">
+  <div class="section-head"><div><div class="small-kicker">03 · 초기화 방식 구분</div>
+     <h2 id="sources-title">모든 초기화가 같은 건 아닙니다.</h2></div>
+     <p>커뮤니티의 날짜 예측보다 내 계정의 공식 사용량 정보가 우선합니다.</p>
+  </div>
+  <div id="sources" class="source-cards"><article class="source-card">
+ <div class="card-kicker">OFFICIAL USAGE</div>
+ <h3>내 사용량 설정 확인</h3><p>잔여 사용량과 초기화 시각은 요금제·워크스페이스에 따라 다릅니다. Codex CLI에서도 사용량 확인 명령을 이용할 수 있습니다.</p>
+ <a href="https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan" target="_blank" rel="noopener noreferrer">공식 Codex 사용량 안내 ↗</a>
+</article>
+<article class="source-card">
+ <div class="card-kicker">RESET RULES</div>
+ <h3>보관된 초기화권과 자동 초기화</h3><p>보관된 초기화권은 사용하거나 만료될 때까지 남습니다. 자동/전역 초기화는 적용 대상 계정에만 직접 반영되며 반복 일정은 보장되지 않습니다.</p>
+ <a href="https://help.openai.com/en/articles/20001498-how-resets-work-in-codex" target="_blank" rel="noopener noreferrer">초기화 종류·대상 공식 안내 ↗</a>
+</article>
+<article class="source-card">
+ <div class="card-kicker">SYSTEM STATUS</div>
+ <h3>서비스 장애는 초기화가 아닙니다</h3><p>장애·점검과 사용량 초기화는 다른 사건입니다. 공식 상태 페이지는 서비스 운영 상태를 보여주며 개인 한도는 제공하지 않습니다.</p>
+ <a href="https://status.openai.com/" target="_blank" rel="noopener noreferrer">OpenAI 공식 서비스 상태 ↗</a>
+</article></div>
+ </section>
+ <section class="faq" aria-labelledby="faq-title">
+  <div class="section-head"><div><div class="small-kicker">FAQ</div>
+   <h2 id="faq-title">자주 묻는 질문</h2></div></div>
+  <details><summary>1. 내 Codex 사용량은 언제 초기화되나요?</summary><p>Codex 또는 ChatGPT의 설정 → 사용량에서 정확한 초기화 시각을 확인하고 입력하세요. 이 독립적인 계산기는 계정에 로그인하거나 사용량을 가져오지 않습니다. 5시간·주간 한도 적용 여부도 요금제마다 다를 수 있습니다.</p></details>
+<details><summary>2. 이 사이트에서 Codex를 강제로 초기화하거나 전역 초기화를 예측하나요?</summary><p>아니요. 계정 사용량을 초기화하거나 숨겨진 잔여량을 읽거나 임의로 정해지는 전역 초기화를 예측하지 않습니다. OpenAI의 공식 발표 또는 실제 사용량 화면으로만 확인할 수 있습니다.</p></details>
+<details><summary>3. 저장된 초기화권을 사용하면 주간 초기화 시각도 바뀌나요?</summary><p>대상에 포함된 한도를 갱신하고 주간 초기화 기준이 바뀔 수 있습니다. 적용 조건·만료일·갱신되는 항목은 실제 계정 혜택과 공식 초기화 안내를 확인하세요.</p></details>
+<details><summary>4. 계산기와 계정에 표시된 시간이 다르면요?</summary><p>이 사이트는 직접 입력한 시각과 기기 시계로 계산합니다. 유료·보관 초기화권 사용, 워크스페이스 설정이나 시간대 변경에 따라 공식 시간이 달라질 수 있습니다. 계정의 사용량 화면이 우선합니다.</p></details>
+<details><summary>5. API 키·계정·입력한 날짜를 수집하나요?</summary><p>계정이나 API 연결이 없습니다. 계산은 브라우저 안에서 처리됩니다. 선택적으로 로컬 저장을 켠 경우만 해당 브라우저에 날짜를 저장하고 &#x27;모두 지우기&#x27;로 삭제할 수 있습니다. 웹파일 제공을 위해 GitHub Pages 서버에서 일반적인 HTTP 연결 정보가 처리될 수 있습니다.</p></details>
+  <details><summary>6. 돈 내는 즉시 초기화와 저장된 초기화권은 같은가요?</summary>
+   <p>다릅니다. 대상 계정의 유료 즉시 초기화는 결제가 승인되면 바로 적용되는 반면, 보관된 초기화권은 제공 조건에 따라 나중에 직접 사용할 수 있습니다. <a target="_blank" rel="noopener noreferrer" href="https://help.openai.com/en/articles/20001507-paid-weekly-work-and-codex-rate-limit-resets">공식 유료 초기화 안내 ↗</a></p>
+  </details>
+ </section>
+ </div>
+</main>
+<footer class="site-footer"><div class="shell footer-row">
+ <p>독립적인 무료 도구로 OpenAI가 운영·후원·보증하지 않습니다. 광고, 추적, 외부 스크립트, 회원가입이 없습니다. 공식 문서 확인일: 2026년 10월 28일. 정책은 변경될 수 있습니다.</p>
+ <a href="https://help.openai.com/en/articles/20001498-how-resets-work-in-codex" target="_blank" rel="noopener noreferrer">공식 안내 문서 보기 ↗</a>
+</div></footer>
+</body></html>
